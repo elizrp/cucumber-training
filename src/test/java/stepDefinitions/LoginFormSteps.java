@@ -54,6 +54,6 @@ public class LoginFormSteps {
 
     @Then("there is a message about number of login attempts left")
     public void displayLoginAttemptsMessage() {
-        System.out.println("Login attempts left: 2");
+        System.out.println("Login attempts left: X");
     }
 }

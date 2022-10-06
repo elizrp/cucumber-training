@@ -36,7 +36,7 @@ Feature: Verify login form
         | username | password |
         | user2    | 1234     |
         | user1    | 12345    |
-        | user1    | [blank]  |
-        | [blank]  | 1234     |
-        | [blank]  | [blank]  |
+        | user1    |          |
+        |          | 1234     |
+        |          |          |
         | user2    | 12345    |
