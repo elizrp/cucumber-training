@@ -1,11 +1,11 @@
-@login
+@Login
 Feature: Verify login form
   The login form functionality works as expected
 
   Background:
     Given user goes to login page
 
-  @positive
+  @Positive
   Scenario: Login with valid credentials
     Given the following user exists
       | username | password |
@@ -23,7 +23,7 @@ Feature: Verify login form
         | username | password |
         | user2    | 12345    |
 
-    @negative
+    @Negative
     Scenario Outline: Login with wrong or empty username/password
       When user enters "<username>" as username and "<password>" as password
       And user clicks on the submit button
