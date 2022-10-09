@@ -8,7 +8,7 @@ Feature: Verify registration form
     Given user goes to registration page
     And all fields are empty
 
-  @Positive
+  @Positive @PositiveRegister
   Scenario Outline: Successful registration with valid data
     When user enters "<username>" in username field
     * user enters "<email>" in email field
@@ -25,7 +25,7 @@ Feature: Verify registration form
       | user1    | user1@test.mail | 1234     | 1234            | 08123456 | Sofia |
       | user1    | user1@test.mail | 1234     | 1234            |          |       |
 
-  @Negative
+  @Negative @NegativeRegister
   Scenario Outline: Unsuccessful registration
     When user enters "<username>" in username field
     * user enters "<email>" in email field

@@ -2,7 +2,7 @@
 
 This is a project which consists of Java Cucumber tests as part of my QA training.
 
-## Setup (pre-requisites)
+### Setup (pre-requisites)
 
 1. Java 11
 2. Maven
@@ -12,7 +12,7 @@ This is a project which consists of Java Cucumber tests as part of my QA trainin
 	- Cucumber for Java
 	- Gherkin
 
-## Run Tests
+### Run Tests
 
 #### To run a single test:
 - Navigate to the feature file that contains the test
