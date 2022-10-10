@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import helpers.Calculator;
-import helpers.CalculatorProcessingHelper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
@@ -30,7 +29,7 @@ public class CalculatorSteps {
     // setup type of calculator
     @ParameterType("sum|subtract")
     public Calculator operation(String operation) {
-        return CalculatorProcessingHelper.setupCalculator(operation);
+        return setupCalculator(operation);
     }
 
     // numeric calculations steps

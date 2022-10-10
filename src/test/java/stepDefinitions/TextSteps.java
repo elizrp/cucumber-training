@@ -1,15 +1,14 @@
 package stepDefinitions;
 
-import helpers.StringHelper;
-import helpers.TextProcessingHelper;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java8.En;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static helpers.StringHelper.*;
+import static helpers.TextProcessingHelper.*;
+import static org.junit.Assert.*;
 
 public class TextSteps implements En {
 
@@ -29,7 +28,7 @@ public class TextSteps implements En {
         });
 
         Then("verify words are equal", () -> {
-            assertTrue("Words are not equal!", StringHelper.areWordsEqual(word1, word2, isCaseSensitive));
+            assertTrue("Words are not equal!", areWordsEqual(word1, word2, isCaseSensitive));
         });
     }
 
@@ -62,7 +61,7 @@ public class TextSteps implements En {
 
     @Then("verify sentences are equal")
     public void verifySentencesAreEqual() {
-        assertTrue("Sentences are not equal!", StringHelper.areSentencesEqual(sentence1, sentence2, isCaseSensitive));
+        assertTrue("Sentences are not equal!", areSentencesEqual(sentence1, sentence2, isCaseSensitive));
     }
 
     // count in text steps
@@ -73,7 +72,7 @@ public class TextSteps implements En {
 
     @When("user wants to find the {symbolLevel} count")
     public void countInText(String symbolLevel) {
-        actualResult = TextProcessingHelper.count(symbolLevel, text);
+        actualResult = count(symbolLevel, text);
     }
 
     @Then("verify the count is {int}")
