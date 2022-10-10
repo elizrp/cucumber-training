@@ -84,49 +84,47 @@ public class CalculatorSteps {
 
     @When("user wants to {operation} all numbers in {int} column")
     public void calculateNumbersByColumn(Calculator calculator, int column) {
-        if (column == 0) {
-            for (String element : firstColumn) {
-                if (firstColumn.indexOf(element) == 0) {
-                    tempCalc = calculator.calculate(Integer.parseInt(element), tempCalc);
-                } else {
-                    tempCalc = calculator.calculate(tempCalc, Integer.parseInt(element));
+        switch (column) {
+            case 0:
+                for (String element : firstColumn) {
+                    // for subtract operation the first iteration is number-temp (where temp=0),
+                    // while from the second on -> temp-number
+                    tempCalc = (firstColumn.indexOf(element) == 0) ? calculator.calculate(Integer.parseInt(element), tempCalc)
+                            : calculator.calculate(tempCalc, Integer.parseInt(element));
                 }
-            }
-            firstColumnResult = tempCalc;
-            tempCalc = 0;
-        } else if (column == 1) {
-            for (String element : secondColumn) {
-                if (secondColumn.indexOf(element) == 0) {
-                    tempCalc = calculator.calculate(Integer.parseInt(element), tempCalc);
-                } else {
-                    tempCalc = calculator.calculate(tempCalc, Integer.parseInt(element));
+                firstColumnResult = tempCalc;
+                tempCalc = 0;
+                break;
+            case 1:
+                for (String element : secondColumn) {
+                    // for subtract operation the first iteration is number-temp (where temp=0),
+                    // while from the second on -> temp-number
+                    tempCalc = (secondColumn.indexOf(element) == 0) ? calculator.calculate(Integer.parseInt(element), tempCalc)
+                            : calculator.calculate(tempCalc, Integer.parseInt(element));
                 }
-            }
-            secondColumnResult = tempCalc;
-        } else {
-            System.out.println("Column must be between 0-1!");
+                secondColumnResult = tempCalc;
+                break;
+            default:
+                fail("Column must be between 0-1!");
         }
     }
 
     @Then("the result in the {int} column is {int}")
     public void verifyColumnResult(int column, int expectedResult) {
-        if (column == 0) {
-            assertEquals("The expected result for column 1 does not equal the actual result", expectedResult, firstColumnResult);
-        } else {
-            assertEquals("The expected result for column 2 does not equal the actual result", expectedResult, secondColumnResult);
+        if (!(column == 0 || column == 1)) {
+            fail("Column number must be 0 or 1!");
         }
+        assertEquals(String.format("The expected result for column %d does not equal the actual result", column + 1),
+                expectedResult, column == 0 ? firstColumnResult : secondColumnResult);
+
     }
 
     @And("the calculation of the second column is (.*) than the calculation of the first column$")
     public void compareColumnCalculations(String operator) {
-        if (operator.equals("bigger")) {
-            assertTrue("The calculation of the second column is NOT bigger than the first column",
-                    secondColumnResult > firstColumnResult);
-        } else if (operator.equals("less")) {
-            assertTrue("The calculation of the second column is NOT less than the first column",
-                    secondColumnResult < firstColumnResult);
-        } else {
+        if (!(operator.equals("bigger") || operator.equals("less"))) {
             fail("Comparison operator must be \"bigger\" or \"less\"!");
         }
+        assertTrue(String.format("The calculation of the second column is NOT %s than the first column", operator),
+                operator.equals("bigger") ? secondColumnResult > firstColumnResult : secondColumnResult < firstColumnResult);
     }
 }
