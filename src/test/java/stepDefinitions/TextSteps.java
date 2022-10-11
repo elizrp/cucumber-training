@@ -12,8 +12,10 @@ import static org.junit.Assert.*;
 
 public class TextSteps implements En {
 
+    public static boolean isCaseSensitive;
+
     private String word1, word2, sentence1, sentence2, text;
-    private boolean isCaseSensitive;
+
     private int actualResult;
 
     // words steps with lambda expressions

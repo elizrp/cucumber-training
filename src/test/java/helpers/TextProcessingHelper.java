@@ -1,6 +1,7 @@
 package helpers;
 
-import static helpers.StringHelper.*;
+import static helpers.StringHelper.getCharsCount;
+import static helpers.StringHelper.getWordsCountFromText;
 
 public class TextProcessingHelper {
 
