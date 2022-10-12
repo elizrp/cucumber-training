@@ -51,12 +51,12 @@ public class TextSteps implements En {
     }
 
     // sentences steps
-    @When("the first sentence is {}")
+    @When("the first sentence is {string}")
     public void setFirstSentence(String input) {
         sentence1 = input;
     }
 
-    @When("the second sentence is {}")
+    @When("the second sentence is {string}")
     public void setSecondSentence(String input) {
         sentence2 = input;
     }

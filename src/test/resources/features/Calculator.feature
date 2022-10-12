@@ -29,7 +29,7 @@ Feature: Calculator functionalities for sum and difference
 
   Rule: Compare two columns with numbers
 
-    @ColumnCalculations
+    @ColumnCalculations @Demo
     Scenario Outline: Sum/Difference of numbers by column
       Given user has the following numbers
         | 2  | 7  |
@@ -37,7 +37,7 @@ Feature: Calculator functionalities for sum and difference
         | 1  | 0  |
         | 10 | 16 |
       When user wants to <operation> all numbers in <column1> column
-      And user wishes to <operation> all numbers in <column2> column
+      And user wishes to <operation> numbers in <column2> column
       Then the result in the <column1> column is <resultFirstColumn>
       And the result in the <column2> column is <resultSecondColumn>
       And the calculation of the second column is <comparisonOperator> than the calculation of the first column

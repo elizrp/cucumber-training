@@ -25,7 +25,7 @@ Feature: Verify login form
 
     @Negative @NegativeLogin
     Scenario Outline: Login with wrong or empty username/password
-      When user enters "<username>" as username and "<password>" as password
+      When user enters <username> as username and <password> as password
       And user clicks on the submit button
       Then user stays on login page
       * error message is displayed

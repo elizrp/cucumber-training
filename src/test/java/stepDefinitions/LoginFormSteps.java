@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +13,7 @@ public class LoginFormSteps {
         System.out.println("Login page displayed");
     }
 
-    @When("user enters {string} as username and {string} as password")
+    @When("user enters {} as username and {} as password")
     public void enterUsernameAndPassword(String username, String password) {
         System.out.println(String.format("Enter username: %s and password: %s", username, password));
     }
@@ -32,7 +33,7 @@ public class LoginFormSteps {
         System.out.println("The user in the data table exists");
     }
 
-    @Given("the following user does not exist")
+    @But("the following user does not exist")
     public void verifyUserNotExists(DataTable dataTable) {
         System.out.println("The user in the data table does not exist");
     }

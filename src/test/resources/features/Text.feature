@@ -5,7 +5,7 @@ Feature: Text expressions
     Background:
       Given case-sensitivity is off
 
-    @CaseSensitivity
+    @CaseSensitivity @Word @Demo
     Scenario Outline: Compare words
       When the first word is <word1>
       And the second word is <word2>
@@ -16,10 +16,10 @@ Feature: Text expressions
         | Cucumber | cucumber |
         | CUCUMBER | CUCUMBER |
 
-    @Sentence
+    @CaseSensitivity @Sentence @Demo
     Scenario Outline: Compare sentences
-      When the first sentence is <sentence1>
-      And the second sentence is <sentence2>
+      When the first sentence is "<sentence1>"
+      And the second sentence is "<sentence2>"
       Then verify sentences are equal
 
       Examples:

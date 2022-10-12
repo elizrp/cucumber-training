@@ -7,7 +7,7 @@ Feature: Extending StringHelper tests with RegEx steps
   @WordsRegex
   Rule: Extend word tests with RegEx
 
-  @WordsRegexLetter
+  @WordsRegexLetter @Demo
   Scenario: Compare words when first occurrence of any capital or small letter is removed
     Given first word is CucumberaazzAAZZ
     And first occurrence of a is removed
@@ -62,9 +62,7 @@ Feature: Extending StringHelper tests with RegEx steps
     When second sentence is "cucumber is amazing"
     Then verify the sentences are equal
 
-
   Rule: Extend word and char count tests with RegEx
-
     Background:
       Given input text
       """
@@ -75,8 +73,8 @@ Feature: Extending StringHelper tests with RegEx steps
           Duis aute irure dolor in reprehenderit in  voluptate  -  velit esse   cillum   dolore eu fugiat nulla pariatur ?
           Excepteur sint  occaecat cupidatat non  proident, sunt in culpa qui officia deserunt mollit anim id est laborum !
       """
-    @CountRegex
-    Scenario: Verify the count of words and chars in a text
+  @CountRegex @Demo
+  Scenario: Verify the count of words and chars in a text
       When all whitespaces before , are removed
       And all whitespaces before . are removed
       And all whitespaces before - are removed

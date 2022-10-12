@@ -70,7 +70,7 @@ public class CalculatorSteps {
         secondColumn = table.column(1);
     }
 
-    @When("user wants/wishes to {operation} all numbers in {int} column")
+    @When("user wants/wishes to {operation}( all) numbers in {int} column")
     public void calculateNumbersByColumn(Calculator calculator, int columnIndex) {
         switch (columnIndex) {
             case 0:
